@@ -7,7 +7,9 @@ urlpatterns = [
     # do not start urls with a /, its autmatic
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('cats/', views.cats_index, name='index' )
+    path('cats/', views.cats_index, name='index' ),
+    #new routes
+    path('cats/<int:cat_id>/', views.cat_details, name='detail')
 ]
 
 
