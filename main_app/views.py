@@ -1,10 +1,6 @@
 from django.shortcuts import render
+from .models import Cat
 
-cats = [
-  {'name': 'Lolo', 'breed': 'tabby', 'description': 'furry little demon', 'age': 3},
-  {'name': 'Sachi', 'breed': 'calico', 'description': 'gentle and loving', 'age': 2},
-  {'name': 'Tom', 'breed': 'Tom', 'description': 'gentle and loving', 'age': 0},
-]
 # Create your views here.
 # are similar to controllers in express
 # we will define functions here
@@ -20,6 +16,7 @@ def about(request):
     return render(request, 'about.html')    
 
 def cats_index(request):
+    cats = Cat.objects.all()
     return render(request, 'cats/index.html', {'cats': cats})
 
 
