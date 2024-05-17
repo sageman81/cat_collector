@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Cat
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 # are similar to controllers in express
@@ -31,6 +31,13 @@ class CatCreate(CreateView):
   model = Cat
   fields = ['name', 'breed', 'description', 'age']
 
-def __str__(self):
-    return self.name
+class CatUpdate(UpdateView):
+    model = Cat
+    fields = ['breed', 'description', 'age']
+
+class CatDelete(DeleteView):
+    model = Cat
+    success_url = '/cats'  
+
+
     

@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %} 
+
+<h1>Do you want to delete(shame) <span class="red-text">{{cat.name}}</span></h1>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes Delete this kitty" class="btn"/>
+  <a href="{% url 'detail' cat.id%}">Cancel</a>
+</form>
+
+{% endblock %}
