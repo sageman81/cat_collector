@@ -8,8 +8,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('cats/', views.cats_index, name='index' ),
-    #new routes
-    path('cats/<int:cat_id>/', views.cat_details, name='detail')
+    path('cats/create/', views.CatCreate.as_view(), name= 'cats_create'),
+    path('cats/<int:cat_id>/', views.cat_details, name='detail'), 
 ]
 
 

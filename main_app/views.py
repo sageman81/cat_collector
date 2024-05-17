@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Cat
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 # are similar to controllers in express
@@ -25,3 +26,11 @@ def cat_details(request, cat_id):
 
 # <%= cat.name %> ===    {{ cat.name}}
 # <% if(cat.name === 'Billie' %>.... === {% if cat.name == 'Billie' %} 
+
+class CatCreate(CreateView):
+  model = Cat
+  fields = ['name', 'breed', 'description', 'age']
+
+def __str__(self):
+    return self.name
+    
